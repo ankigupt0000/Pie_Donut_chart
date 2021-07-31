@@ -11,6 +11,7 @@ images = []
 white_color = 255
 black_pixel = [0,0,0]
 transparant_pixel = [0,0,0,0]
+donut_chart = False
 
 
 common_img_extn=["tif","tiff","png","jpg","jpeg","bmp","gif","eps"]
@@ -59,8 +60,13 @@ for i in range(num_data):
     endAngle=end_angle[i]
     center=(radius,radius)
     color=white_color
-
-    for r in range(0,int(radius)):
+    
+    if donut_chart == True:
+        half_radius = int(radius/2)
+    else:
+        half_radius = 0
+        
+    for r in range(half_radius,int(radius)):
         axes = (r+1,r+1)
         axes2 = (r+1,r)
         axes3 = (r,r+1)
